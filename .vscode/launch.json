@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TicketVerseApplication<TicketVerse>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "pbl.project.TicketVerseApplication",
+            "projectName": "TicketVerse",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Ticket<TicketVerse>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "pbl.project.Ticket",
+            "projectName": "TicketVerse",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

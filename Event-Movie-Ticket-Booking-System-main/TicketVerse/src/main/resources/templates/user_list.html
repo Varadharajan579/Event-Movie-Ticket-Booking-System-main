@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>User List</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/table-data.css" />
+  </head>
+  <body>
+    <div th:replace="fragments/Navbar :: navigation"></div>
+
+    <div class="table-container">
+      <h2>User List</h2>
+      <div class="elements">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+          </tr>
+          <tr th:each="user : ${user_list}">
+            <td th:text="${user.user_name}"></td>
+            <td th:text="${user.user_email}"></td>
+            <td th:text="${user.user_contact}"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div th:replace="fragments/Footer :: footer"></div>
+  </body>
+</html>

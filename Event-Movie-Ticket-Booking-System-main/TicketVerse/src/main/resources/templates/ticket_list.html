@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ticket List</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/table-data.css" />
+  </head>
+  <body>
+    <div th:replace="fragments/Navbar :: navigation"></div>
+
+    <div th:if="${param.message}">
+      <div id="operation-msg">Ticket Created !!</div>
+    </div>
+
+    <div th:if="${message}" id="operation-msg" role="alert">
+      <span th:text="${message}"></span>
+    </div>
+
+    <div class="table-container">
+      <h2>Ticket List</h2>
+      <div class="elements">
+        <table>
+          <tr>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>Issued To</th>
+            <th>Contact</th>
+            <th>Ticket Type</th>
+            <th>Reference</th>
+            <th>Price</th>
+            <th
+              th:if="${#authorization.expression('hasRole(''ROLE_VENDER'')')}"
+            >
+              Action
+            </th>
+          </tr>
+          <tr th:each="ticket : ${tickets_list}">
+            <td>
+              <a
+                th:href="@{/display_ticket/{ticket_id}(ticket_id=${ticket.ticket_id})}"
+                th:text="${ticket.event_name}"
+              ></a>
+            </td>
+            <td th:text="${ticket.event_date}"></td>
+            <td th:text="${ticket.venue_name}"></td>
+            <td th:text="${ticket.ticket_holder_name}"></td>
+            <td th:text="${ticket.ticket_holder_contact}"></td>
+            <td th:text="${ticket.ticket_type}"></td>
+            <td th:text="${ticket.booking_reference}"></td>
+            <td th:text="'$' +${ticket.ticket_price}"></td>
+            <td
+              th:if="${#authorization.expression('hasRole(''ROLE_VENDER'')')} "
+            >
+              <div class="button">
+                <a
+                  th:href="@{/config_ticket/{ticket_id}(ticket_id=${ticket.ticket_id})}"
+                  class="update-btn"
+                  >Edit</a
+                >
+                <a
+                  th:href="@{/delete_ticket/{ticket_id}(ticket_id=${ticket.ticket_id})}"
+                  class="delete-btn"
+                  >Delete</a
+                >
+              </div>
+            </td>
+          </tr>
+
+          <tr th:if="${#authorization.expression('hasRole(''ROLE_GUEST'')')}">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Subtotal:</strong></td>
+            <td th:text="'$' +${sub_total}"></td>
+          </tr>
+          <tr th:if="${#authorization.expression('hasRole(''ROLE_GUEST'')')}">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Tax (13%):</strong></td>
+            <td th:text="'$' +${tax}"></td>
+          </tr>
+          <!-- check if list is not empty -->
+          <tr th:if="${#authorization.expression('hasRole(''ROLE_GUEST'')')}">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr th:if="${#authorization.expression('hasRole(''ROLE_GUEST'')')}">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Total:</strong></td>
+            <td th:text="'$' +${total}"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div th:replace="fragments/Footer :: footer"></div>
+  </body>
+</html>

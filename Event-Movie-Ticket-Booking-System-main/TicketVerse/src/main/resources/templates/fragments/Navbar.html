@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Ticket </title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div th:fragment="navigation">
+      <nav>
+        <div class="navbar">
+          <div class="brand-name">
+            <a href="/">Ticket <span>T</span></a>
+          </div>
+
+          <ul class="nav-link">
+            <li><a href="/">Home</a></li>
+            <li
+              th:fragments="logout"
+              th:if="${#authorization.expression('isAuthenticated()')}"
+            >
+              <a href="/ticket_list">Tickets</a>
+            </li>
+            <li
+              th:fragments="logout"
+              th:if="${#authorization.expression('hasRole(''ROLE_VENDER'')')}"
+            >
+              <a href="/user_list">Users</a>
+            </li>
+            <li
+              th:fragments="logout"
+              th:if="${#authorization.expression('hasRole(''ROLE_VENDER'')')}"
+            >
+              <a href="/create_ticket">Add Ticket</a>
+            </li>
+            <li th:if="${not #authorization.expression('isAuthenticated()')}">
+              <a href="/login">Login</a>
+            </li>
+            <li th:if="${not #authorization.expression('isAuthenticated()')}">
+              <a href="/registration">Register</a>
+            </li>
+            <li
+              th:fragments="logout"
+              th:if="${#authorization.expression('isAuthenticated()')}"
+            >
+              <select class="user-options" onchange="location = this.value;">
+                <option value="">
+                  <span th:text="${#authentication.principal.username}"></span>
+                </option>
+                <option value="/logout">Logout</option>
+              </select>
+            </li>
+            <li><span id="live-clock" class="clock"></span></li>
+          </ul>
+        </div>
+      </nav>
+      <script>
+        (function() {
+          function updateClock() {
+            var el = document.getElementById('live-clock');
+            if (!el) return;
+            var now = new Date();
+            var options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            el.textContent = now.toLocaleTimeString([], options);
+          }
+          updateClock();
+          setInterval(updateClock, 1000);
+        })();
+      </script>
+    </div>
+  </body>
+</html>

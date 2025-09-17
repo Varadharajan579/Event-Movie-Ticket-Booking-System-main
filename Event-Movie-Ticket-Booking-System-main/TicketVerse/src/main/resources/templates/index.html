@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+
+  <body>
+    <div th:replace="fragments/Navbar :: navigation"></div>
+
+    <div class="home-img">
+      <h1>Welcome to Ticket Booking</h1>
+      <p>Your Gateway to Exciting Events and Entertainment!</p>
+    </div>
+
+    <div class="section review">
+      <h2>Customer Reviews</h2>
+      <div class="review-card">
+        <div class="review-content">
+          <p>
+            "Attending events through Ticket Fusion has been a breeze. Easy
+            booking, great seats, and amazing experiences!"
+            <span>~ Olivia Doe</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-content">
+          <p>
+            "I've used Ticket Fusion for multiple events and it never
+            disappoints. Highly recommended!" <span>~ Pamela Smith</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-content">
+          <p>
+            "The convenience of booking tickets on Ticket Fusion has enhanced my
+            event experiences. Top-notch service!"
+            <span>~ Georgia Johnson</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-content">
+          <p>
+            "Ticket Fusion has made exploring and attending events a joy. It's
+            my go-to platform for all things entertainment."
+            <span>~ Alice Anderson</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-content">
+          <p>
+            "As an event organizer, Ticket Fusion has streamlined ticket sales
+            and management. An invaluable tool!"
+            <span>~ Florina White</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Upcoming Events</h2>
+      <p>Explore the latest and most exciting events happening near you.</p>
+
+      <section class="upcoming-event event-container">
+        <div class="event-section">
+          <img src="images/eventimg-1.jpg" alt="event-1" class="event-img" />
+
+          <span class="event-title">DJ Night</span>
+
+          <div class="book-btn">
+            <a href="/login">Book Now</a>
+          </div>
+        </div>
+
+        <div class="event-section">
+          <img src="images/eventimg-2.jpg" alt="event-2" class="event-img" />
+
+          <span class="event-title">Dance Night</span>
+
+          <div class="book-btn">
+            <a href="/login">Book Now</a>
+          </div>
+        </div>
+
+        <div class="event-section">
+          <img src="images/eventimg-3.jpg" alt="event-3" class="event-img" />
+
+          <span class="event-title">Flash Mob</span>
+
+          <div class="book-btn">
+            <a href="/login">Book Now</a>
+          </div>
+        </div>
+
+        <div class="event-section">
+          <img src="images/eventimg-4.jpg" alt="event-4" class="event-img" />
+
+          <span class="event-title">Luminous Nightlights</span>
+
+          <div class="book-btn">
+            <a href="/login">Book Now</a>
+          </div>
+        </div>
+
+        <div class="event-section">
+          <img src="images/eventimg-5.jpg" alt="event-5" class="event-img" />
+
+          <span class="event-title">Conference</span>
+          <div class="book-btn">
+            <a href="/login">Book Now</a>
+          </div>
+        </div>
+
+        <div class="event-section">
+          <img src="images/eventimg-6.jpg" alt="event-6" class="event-img" />
+
+          <span class="event-title">Fair Fiesta</span>
+          <div class="book-btn">
+            <a href="/login">Book Now</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="contact-section">
+      <h2>Contact Us</h2>
+      <p>
+        If you have any questions or need assistance, feel free to reach out to
+        us.
+      </p>
+      <p>Email: <a href="mailto:gtanish544@gmail.com">varadhan@gmail.com</a></p>
+      <p>Phone: <a href="tel:935-817-4158">+91 9565-127-8787</a></p>
+      <p>
+        <input
+          type="text"
+          placeholder="Enter your email address"
+          class="contact-input"
+        /><a>Subscribe</a>
+      </p>
+    </div>
+
+    <div th:replace="fragments/Footer :: footer"></div>
+  </body>
+</html>

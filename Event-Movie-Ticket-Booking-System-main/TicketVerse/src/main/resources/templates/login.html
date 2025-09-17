@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+  </head>
+  <body>
+    <div th:replace="fragments/Navbar :: navigation"></div>
+
+    <div th:if="${param.error}">
+      <div id="warning-msg">
+        Invalid Credentials!! Please try with valid credentials.
+      </div>
+    </div>
+    <div th:if="${param.registered}">
+      <div id="success-msg">Registered successfully !!</div>
+    </div>
+    <div th:if="${param.logout}">
+      <div id="warning-msg">Logged out !!</div>
+    </div>
+
+    <div class="form-container">
+      <div class="form-element">
+        <div class="elements">
+          <div class="title">Log in</div>
+          <form th:action="@{/login}" method="post">
+            <table>
+              <tr>
+                <td>
+                  <label for="username">Username: </label>
+                </td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="username"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="password">Password: </label>
+                </td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="password"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <div class="btn">
+              <input type="submit" value="Sign in" />
+            </div>
+          </form>
+        </div>
+        <p class="redirect">
+          <a href="/registration" th:href="@{/registration}" id="redirect-btn"
+            >Don't have an account?</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <div th:replace="fragments/Footer :: footer"></div>
+  </body>
+</html>

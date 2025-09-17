@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  nav {
+    background: #f8731a;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    transition: all 0.4s ease;
+  }
+  
+  nav .navbar {
+    height: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .brand-name a {
+    font-weight: 500;
+    font-size: 35px;
+    color: #fff;
+  }
+  
+  nav .brand-name span {
+    color: #000;
+  }
+  
+  .navbar .nav-link {
+    display: flex;
+  }
+  .navbar .nav-link li {
+    list-style: none;
+    margin: 0 8px;
+  }
+  
+  .nav-link li a {
+    cursor: pointer;
+  }
+  
+  .nav-link li a,
+  .nav-link li span {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 4px;
+    transition: all 0.3s ease;
+  }
+  .nav-link li a:hover {
+    color: #000;
+  }
+  
+  .user-options {
+    background-color: #f8731a;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
+    padding: 0px;
+  }
+  
+  .user-options option {
+    background-color: #f8731a;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .user-options:hover {
+    background-color: #f8731a;
+    color: #000;
+  }
+  
+  footer {
+    background-color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    margin: auto;
+  }
+  
+  footer p {
+    color: #fff;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  footer p a {
+    color: #f8731a;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+  
+  footer p a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }

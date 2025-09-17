@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Create Ticket</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+  </head>
+  <body>
+    <div th:replace="fragments/Navbar :: navigation"></div>
+
+    <div class="form-container">
+      <div class="form-element">
+        <div class="elements">
+          <div class="title">Create Ticket</div>
+          <form th:action="@{/add_ticket}" method="post">
+            <table>
+              <tr>
+                <td><label for="event_name">Event Name: </label></td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="text"
+                      name="event_name"
+                      id="event_name"
+                      placeholder="Event Name"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="event_date">Date: </label></td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="date"
+                      name="event_date"
+                      id="event_date"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="venueName">Venue: </label></td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="text"
+                      name="venue_name"
+                      id="venue_name"
+                      placeholder="Venue Name"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="ticket_holder_name">Ticket Holder Name: </label>
+                </td>
+                <td>
+                  <div class="input-box">
+                    <select name="ticket_holder_name" required>
+                      <option
+                        th:each="user : ${user_list}"
+                        th:if="${user.user_role == 'ROLE_GUEST'}"
+                        th:value="${user.user_name}"
+                        th:text="${user.user_name}"
+                      ></option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="ticket_holder_contact"
+                    >Ticket Holder Contact:
+                  </label>
+                </td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="number"
+                      name="ticket_holder_contact"
+                      id="ticket_holder_contact"
+                      placeholder="Ticket Holder Contact"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="ticket_type">Ticket Type: </label></td>
+                <td>
+                  <div class="input-box">
+                    <select name="ticket_type" required>
+                      <option value="" disabled selected>
+                        Select Ticket Type
+                      </option>
+                      <option value="VIP">VIP</option>
+                      <option value="PREMIUM">PREMIUM</option>
+                      <option value="STANDARD">STANDARD</option>
+                      <option value="GENERAL">GENERAL</option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="booking_reference">Reference: </label></td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="text"
+                      name="booking_reference"
+                      id="booking_reference"
+                      placeholder="Booking Reference"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="ticket_price">Price: </label></td>
+                <td>
+                  <div class="input-box">
+                    <input
+                      type="number"
+                      name="ticket_price"
+                      id="ticket_price"
+                      placeholder="Ticket Price"
+                      required
+                    />
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            <div class="btn">
+              <input type="submit" value=" Create " />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div th:replace="fragments/Footer :: footer"></div>
+  </body>
+</html>
