@@ -21,7 +21,7 @@ services:
         value: update
       - key: SPRING_JPA_DATABASE_PLATFORM
         value: org.hibernate.dialect.PostgreSQLDialect
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./Event-Movie-Ticket-Booking-System-main/TicketVerse/Dockerfile
 
 databases:
   - name: Event-Movie-Ticket-Booking-System-db
