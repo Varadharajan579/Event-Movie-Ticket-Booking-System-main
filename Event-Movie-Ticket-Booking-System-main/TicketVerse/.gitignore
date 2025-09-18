@@ -1,10 +1,17 @@
-HELP.md
+### Maven ###
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+### Logs ###
+*.log
+
+### Spring Boot specific ###
+*.jar
+*.war
+
+### STS (Spring Tool Suite) ###
 .apt_generated
 .classpath
 .factorypath
@@ -14,7 +21,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -25,9 +32,14 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
+/build/
+/out/
 !**/src/main/**/build/
-!**/src/test/**/build/
+/!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+
+### OS Files ###
+.DS_Store
+Thumbs.db
