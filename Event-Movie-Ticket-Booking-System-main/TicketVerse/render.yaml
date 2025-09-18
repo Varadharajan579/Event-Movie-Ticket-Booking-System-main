@@ -1,21 +1,21 @@
 services:
   - type: web
-    name: event-movie-booking
+    name: Event-Movie-Ticket-Booking-System-main
     env: docker
     plan: free
     autoDeploy: true
     envVars:
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
-          name: eventdb
+          name: Event-Movie-Ticket-Booking-System-main
           property: connectionString
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
-          name: eventdb
+          name: Event-Movie-Ticket-Booking-System-main
           property: user
       - key: SPRING_DATASOURCE_PASSWORD
         fromDatabase:
-          name: eventdb
+          name: Event-Movie-Ticket-Booking-System-main
           property: password
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: update
@@ -24,7 +24,7 @@ services:
     dockerfilePath: ./Dockerfile
 
 databases:
-  - name: eventdb
+  - name: Event-Movie-Ticket-Booking-System-main
     plan: free
-    databaseName: eventdb
+    databaseName: Event-Movie-Ticket-Booking-System-main
     user: eventuser
