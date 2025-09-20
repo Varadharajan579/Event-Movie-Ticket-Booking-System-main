@@ -19,6 +19,16 @@
             "projectName": "TicketVerse",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TicketVerseApplication<Ticket>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "pbl.project.TicketVerseApplication",
+            "projectName": "Ticket",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
